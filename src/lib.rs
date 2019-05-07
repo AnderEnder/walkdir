@@ -106,10 +106,13 @@ for entry in walker.filter_entry(|e| !is_hidden(e)) {
 #![deny(missing_docs)]
 #![allow(unknown_lints)]
 #![allow(bare_trait_objects)]
+#![allow(warnings)]
 
 #[cfg(test)]
 #[macro_use]
 extern crate doc_comment;
+#[cfg(unix)]
+extern crate libc;
 extern crate same_file;
 #[cfg(windows)]
 extern crate winapi;
@@ -118,6 +121,8 @@ extern crate winapi_util;
 
 #[cfg(test)]
 doctest!("../README.md");
+
+pub mod os;
 
 use std::cmp::{Ordering, min};
 use std::fmt;
