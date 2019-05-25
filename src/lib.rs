@@ -122,8 +122,6 @@ extern crate winapi_util;
 #[cfg(test)]
 doctest!("../README.md");
 
-pub mod os;
-
 use std::cmp::{Ordering, min};
 use std::fmt;
 use std::fs::{self, ReadDir};
@@ -141,6 +139,7 @@ pub use error::Error;
 
 mod dent;
 mod error;
+pub mod os;
 #[cfg(test)]
 mod tests;
 mod util;
